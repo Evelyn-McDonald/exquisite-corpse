@@ -2,5 +2,6 @@
 
 ### Compile and minify js files
 ```
+npm install
 gulp
 ```
