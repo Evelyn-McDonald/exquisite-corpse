@@ -100,9 +100,9 @@ var CURRENT_HEAD = 1;
 var CURRENT_TORSO = 1;
 var CURRENT_LEGS = 1;
 
-var TOTAL_HEAD = 2;
-var TOTAL_TORSO = 2;
-var TOTAL_LEGS = 2;
+var TOTAL_HEAD = 20;
+var TOTAL_TORSO = 20;
+var TOTAL_LEGS = 20;
 
 var headBuildWrapper = document.getElementById('headBuildWrapper');
 var torsoBuild = document.getElementById('torsoBuild');
