@@ -460,9 +460,9 @@ $('.arrow').each(function() {
             var end = '100%';
         }
 
-        if (component == 'head') slideHead(begin, end);
-        if (component == 'torso') slideTorso(begin, end);
-        if (component == 'legs') slideLegs(begin, end);
+        if (component == 'head') slideHead(begin, end, direction);
+        if (component == 'torso') slideTorso(begin, end, direction);
+        if (component == 'legs') slideLegs(begin, end, direction);
 
         updateShadow();
     })
@@ -470,20 +470,20 @@ $('.arrow').each(function() {
 
 // swipe interaction
 $('#headSelector').swipe( {
-    swipeRight:function() { slideHead('100%', '-100%') },
-    swipeLeft:function() { slideHead('-100%', '100%') },
+    swipeRight:function() { slideHead('100%', '-100%', 'right') },
+    swipeLeft:function() { slideHead('-100%', '100%', 'left') },
     threshold: 80,
 });
 
 $('#torsoSelector').swipe( {
-    swipeRight:function() { slideTorso('100%', '-100%') },
-    swipeLeft:function() { slideTorso('-100%', '100%') },
+    swipeRight:function() { slideTorso('100%', '-100%', 'right') },
+    swipeLeft:function() { slideTorso('-100%', '100%', 'left') },
     threshold: 80,
 });
 
 $('#legsSelector').swipe( {
-    swipeRight:function() { slideLegs('100%', '-100%') },
-    swipeLeft:function() { slideLegs('-100%', '100%')},
+    swipeRight:function() { slideLegs('100%', '-100%', 'right') },
+    swipeLeft:function() { slideLegs('-100%', '100%', 'left')},
     threshold: 80,
 });
 
@@ -701,9 +701,14 @@ function updateHead() {
     bodymovin.loadAnimation(headAnim);
 }
 
-function slideHead(begin, end) {
+function slideHead(begin, end, direction) {
     $('#headBuildWrapper').animate({marginLeft: begin, opacity: 0}, 200, function() {
-        CURRENT_HEAD = (CURRENT_HEAD + 1) % TOTAL_HEAD || TOTAL_HEAD;
+        if (direction === 'right') {
+            CURRENT_HEAD = (CURRENT_HEAD + 1) % TOTAL_HEAD || TOTAL_HEAD;
+        } else {
+            CURRENT_HEAD = (CURRENT_HEAD - 1) % TOTAL_HEAD || TOTAL_HEAD;
+        }
+
         updateHead();
         updateShadow();
         $('#headBuildWrapper').css({marginLeft: end});
@@ -711,9 +716,14 @@ function slideHead(begin, end) {
     });
 }
 
-function slideTorso(begin, end) {
+function slideTorso(begin, end, direction) {
     $('#torsoBuild').animate({marginLeft: begin, opacity: 0}, 200, function() {
-        CURRENT_TORSO = (CURRENT_TORSO + 1) % TOTAL_TORSO || TOTAL_TORSO;
+        if (direction === 'right') {
+            CURRENT_TORSO = (CURRENT_TORSO + 1) % TOTAL_TORSO || TOTAL_TORSO;
+        } else {
+            CURRENT_TORSO = (CURRENT_TORSO - 1) % TOTAL_TORSO || TOTAL_TORSO;
+        }
+
         updateCorpse(eval('torso_'+CURRENT_TORSO), eval('torsoBuild'));
         updateShadow();
         $('#torsoBuild').css({marginLeft: end});
@@ -721,9 +731,14 @@ function slideTorso(begin, end) {
     });
 }
 
-function slideLegs(begin, end) {
+function slideLegs(begin, end, direction) {
     $('#legsBuild').animate({marginLeft: begin, opacity: 0}, 200, function() {
-        CURRENT_LEGS = (CURRENT_LEGS - 1) || TOTAL_LEGS;
+        if (direction === 'right') {
+            CURRENT_LEGS = (CURRENT_LEGS + 1) || TOTAL_LEGS;
+        } else {
+            CURRENT_LEGS = (CURRENT_LEGS - 1) || TOTAL_LEGS;
+        }
+
         updateCorpse(eval('legs_'+CURRENT_LEGS), eval('legsBuild'));
         updateShadow();
         $('#legsBuild').css({marginLeft: end});
