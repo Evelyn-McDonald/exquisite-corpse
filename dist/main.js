@@ -422,7 +422,7 @@ function setHeight() {
     if (width < 500) {
         build.height(width);
     } else {
-        build.height(width * 0.72);
+        build.height(width * 0.79);
     }
 }
 
@@ -648,34 +648,29 @@ Webflow.push(function() {
             };
             console.log(data);
 
-            $('#error').show();
-            $([document.documentElement, document.body]).animate({
-                scrollTop: $("#error").offset().top
-            }, 2000);
-            
-            // $.ajax({
-            //     url: 'http://hooks.zapier.com/hooks/catch/2805412/l0grn0/',
-            //     data: data,
-            //     method: 'POST',
-            //     dataType: 'json',
-            //     // xhrFields: {
-            //     //    withCredentials: true
-            //     // },
-            //     // beforeSend: function(xhr) {
-            //     //    xhr.withCredentials = true;
-            //     // },
-            //     success: function() {
-            //         $('#gatherDetails').slideUp(200);
-            //         $('#success').show();
-            //     },
-            //     error: function() {
-            //         $('#error').show();
-            //         $([document.documentElement, document.body]).animate({
-            //             scrollTop: $("#error").offset().top
-            //         }, 2000);
-            //         $('#submitBtn').val('Submit');
-            //     },
-            // })
+            $.ajax({
+                url: 'http://hooks.zapier.com/hooks/catch/2805412/l0grn0/',
+                data: data,
+                method: 'POST',
+                dataType: 'json',
+                // xhrFields: {
+                //    withCredentials: true
+                // },
+                // beforeSend: function(xhr) {
+                //    xhr.withCredentials = true;
+                // },
+                success: function() {
+                    $('#gatherDetails').slideUp(200);
+                    $('#success').show();
+                },
+                error: function() {
+                    $('#error').show();
+                    $([document.documentElement, document.body]).animate({
+                        scrollTop: $("#error").offset().top
+                    }, 2000);
+                    $('#submitBtn').val('Submit');
+                },
+            })
         }
     });
 });
