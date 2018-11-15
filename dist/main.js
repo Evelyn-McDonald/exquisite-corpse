@@ -579,22 +579,22 @@ function drawCanvasLayers() {
             ctx.fill();
 
             ctx.globalCompositeOperation = 'destination-out';
-            ctx.drawImage(legsShadow, -30, 30, 400, 400);
-            ctx.drawImage(torsoShadow, -30, 30, 400, 400);
-            ctx.drawImage(headShadow, -30, 30, 400, 400);
+            ctx.drawImage(legsShadow, canvas.width/2 - 30, canvas.height/2 + 30, 300, 300);
+            ctx.drawImage(torsoShadow, canvas.width/2 - 30, canvas.height/2 + 30, 300, 300);
+            ctx.drawImage(headShadow, canvas.width/2 - 30, canvas.height/2 + 30, 300, 300);
         ctx.restore();
 
         ctx.globalCompositeOperation = 'destination-over';
         ctx.drawImage(bg, 0, 0);
         ctx.fillStyle = 'black';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillRect(0, 0, canvas.width, canvas.height, 220, 50);
 
         ctx.globalCompositeOperation = 'source-over';
-        ctx.drawImage(legs, 0, 0, 400, 400);
-        ctx.drawImage(torso, 0, 0, 400, 400);
-        ctx.drawImage(head, 0, 0, 400, 400);
+        ctx.drawImage(legs, canvas.width/2, canvas.height/2, 300, 300);
+        ctx.drawImage(torso, canvas.width/2, canvas.height/2, 300, 300);
+        ctx.drawImage(head, canvas.width/2, canvas.height/2, 300, 300);
 
-        ctx.drawImage(drawLogo, 20, 20);
+        ctx.drawImage(drawLogo, canvas.width / 2, 20);
 
         ctx.font = "30px Spyscape";
         ctx.fillStyle = 'white';
