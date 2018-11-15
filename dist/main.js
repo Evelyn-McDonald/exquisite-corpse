@@ -378,6 +378,10 @@ nameInput.on('input', function(e) {
     nameDiv.html(name);
 });
 
+$('#changeBtn').click(function() {
+    nameInput.val('');
+});
+
 var msgEnum = 0;
 
 revealBtn.click(function(e) {
@@ -617,8 +621,10 @@ Webflow.push(function() {
         if (submitName.val() && submitEmail.val()) {
             submitName.css('border', '1px solid #cccccc');
             submitName.css('background', '#ffffff');
+            $('#name + p').hide()
             submitEmail.css('border', '1px solid #cccccc');
             submitEmail.css('background', '#ffffff');
+            $('#email + p').hide()
 
             $('#submitBtn').val('Please wait...');
 
@@ -671,11 +677,13 @@ $('#submitBtn').click(function() {
         submitName.css('border', '2px solid #FF8366');
         submitName.css('background', '#ffff url(https://uploads-ssl.webflow.com/5bba10d5002d8a181406de36/5bd8fd5c557fae3a134af68a_warning-symbol.svg) no-repeat 95% 50%');
         submitName.css('background-size', '30px');
+        $('#name + p').show()
     }
     if (!submitEmail.val()) {
         submitEmail.css('border', '2px solid #FF8366');
         submitEmail.css('background', '#ffff url(https://uploads-ssl.webflow.com/5bba10d5002d8a181406de36/5bd8fd5c557fae3a134af68a_warning-symbol.svg) no-repeat 95% 50%');
         submitEmail.css('background-size', '30px');
+        $('#email + p').show()
     }
 });
 
