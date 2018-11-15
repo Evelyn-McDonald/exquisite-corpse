@@ -560,48 +560,48 @@ submitBtn.click(function(e) {
 });
 
 
-function drawCanvasLayers() {
-    layerCount++;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+// function drawCanvasLayers() {
+//     layerCount++;
+//     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    if (layerCount >= 8) {
-        ctx.imageSmoothingEnabled = false;
-        ctx.save();
-        ctx.beginPath();
-        ctx.arc(200, 213, 160, 0, Math.PI * 2, false);
-        ctx.closePath();
+//     if (layerCount >= 8) {
+//         ctx.imageSmoothingEnabled = false;
+//         ctx.save();
+//         ctx.beginPath();
+//         ctx.arc(200, 213, 160, 0, Math.PI * 2, false);
+//         ctx.closePath();
 
-        ctx.clip();
-            ctx.fillStyle = 'white';
-            ctx.beginPath();
-            ctx.arc(200, 213, 158, 0, Math.PI * 2, false);
-            ctx.closePath();
-            ctx.fill();
+//         ctx.clip();
+//             ctx.fillStyle = 'white';
+//             ctx.beginPath();
+//             ctx.arc(200, 213, 158, 0, Math.PI * 2, false);
+//             ctx.closePath();
+//             ctx.fill();
 
-            ctx.globalCompositeOperation = 'destination-out';
-            ctx.drawImage(legsShadow, canvas.width/2 - 30, canvas.height/2 + 30, 300, 300);
-            ctx.drawImage(torsoShadow, canvas.width/2 - 30, canvas.height/2 + 30, 300, 300);
-            ctx.drawImage(headShadow, canvas.width/2 - 30, canvas.height/2 + 30, 300, 300);
-        ctx.restore();
+//             ctx.globalCompositeOperation = 'destination-out';
+//             ctx.drawImage(legsShadow, 50, 110, 300, 300);
+//             ctx.drawImage(torsoShadow, 50, 110, 300, 300);
+//             ctx.drawImage(headShadow, 50, 110, 300, 300);
+//         ctx.restore();
 
-        ctx.globalCompositeOperation = 'destination-over';
-        ctx.drawImage(bg, 0, 0);
-        ctx.fillStyle = 'black';
-        ctx.fillRect(0, 0, canvas.width, canvas.height, 220, 50);
+//         ctx.globalCompositeOperation = 'destination-over';
+//         ctx.drawImage(bg, 0, 0);
+//         ctx.fillStyle = 'black';
+//         ctx.fillRect(0, 0, canvas.width, canvas.height, 220, 50);
 
-        ctx.globalCompositeOperation = 'source-over';
-        ctx.drawImage(legs, canvas.width/2, canvas.height/2, 300, 300);
-        ctx.drawImage(torso, canvas.width/2, canvas.height/2, 300, 300);
-        ctx.drawImage(head, canvas.width/2, canvas.height/2, 300, 300);
+//         ctx.globalCompositeOperation = 'source-over';
+//         ctx.drawImage(legs, 80, 80, 300, 300);
+//         ctx.drawImage(torso, 80, 80, 300, 300);
+//         ctx.drawImage(head, 80, 80, 300, 300);
 
-        ctx.drawImage(drawLogo, canvas.width / 2, 20);
+//         ctx.drawImage(drawLogo, canvas.width / 2, 20);
 
-        ctx.font = "30px Spyscape";
-        ctx.fillStyle = 'white';
-        ctx.textAlign = 'center';
-        ctx.fillText(name, canvas.width/2, canvas.height-20)
-    }
-}
+//         ctx.font = "30px Spyscape";
+//         ctx.fillStyle = 'white';
+//         ctx.textAlign = 'center';
+//         ctx.fillText(name, canvas.width/2, canvas.height-20)
+//     }
+// }
 
 // ------------------------------
 // form handling
