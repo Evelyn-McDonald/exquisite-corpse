@@ -318,26 +318,34 @@ Webflow.push(function() {
             };
             console.log(data);
 
-            $.ajax({
-                url: 'http://hooks.zapier.com/hooks/catch/2805412/l0grn0/',
-                data: data,
-                method: 'POST',
-                dataType: 'json',
-                // xhrFields: {
-                //    withCredentials: true
-                // },
-                // beforeSend: function(xhr) {
-                //    xhr.withCredentials = true;
-                // },
-                success: function() {
-                    $('#gatherDetails').slideUp(200);
-                    $('#success').show();
-                },
-                error: function() {
-                    $('#error').show();
-                    $('#submitBtn').val('Submit');
-                },
-            })
+            $('#error').show();
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $("#error").offset().top
+            }, 2000);
+            
+            // $.ajax({
+            //     url: 'http://hooks.zapier.com/hooks/catch/2805412/l0grn0/',
+            //     data: data,
+            //     method: 'POST',
+            //     dataType: 'json',
+            //     // xhrFields: {
+            //     //    withCredentials: true
+            //     // },
+            //     // beforeSend: function(xhr) {
+            //     //    xhr.withCredentials = true;
+            //     // },
+            //     success: function() {
+            //         $('#gatherDetails').slideUp(200);
+            //         $('#success').show();
+            //     },
+            //     error: function() {
+            //         $('#error').show();
+            //         $([document.documentElement, document.body]).animate({
+            //             scrollTop: $("#error").offset().top
+            //         }, 2000);
+            //         $('#submitBtn').val('Submit');
+            //     },
+            // })
         }
     });
 });
