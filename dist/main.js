@@ -524,21 +524,21 @@ updateShadow();
 function drawShadows() {
     ctx2.save();
     ctx2.beginPath();
-    ctx2.arc(shadowCanvas.width/2, shadowCanvas.height/2 - 10, 400, 0, Math.PI * 2, false);
+    ctx2.arc(shadowCanvas.width/2, shadowCanvas.height/2 - 10, 380, 0, Math.PI * 2, false);
     ctx2.closePath();
 
     ctx2.clip();
         ctx2.fillStyle = 'white';
         ctx2.beginPath();
-        ctx2.arc(shadowCanvas.width/2, shadowCanvas.height/2 - 8, 396, 0, Math.PI * 2, false);
+        ctx2.arc(shadowCanvas.width/2, shadowCanvas.height/2 - 8, 376, 0, Math.PI * 2, false);
         ctx2.closePath();
         ctx2.fill();
 
         ctx2.globalCompositeOperation = 'destination-out';
 
-        ctx2.drawImage(legsShadow, 140, 80, 760, 760);
-        ctx2.drawImage(torsoShadow, 140, 80, 760, 760);
-        ctx2.drawImage(headShadow, 140, 80, 760, 760)
+        ctx2.drawImage(legsShadow, 140, 80, 780, 780);
+        ctx2.drawImage(torsoShadow, 140, 80, 780, 780);
+        ctx2.drawImage(headShadow, 140, 80, 780, 780)
     ctx2.restore();
 }
 
