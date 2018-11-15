@@ -194,13 +194,13 @@ updateShadow();
 function drawShadows() {
     ctx2.save();
     ctx2.beginPath();
-    ctx2.arc(shadowCanvas.width/2, shadowCanvas.height/2 - 20, 380, 0, Math.PI * 2, false);
+    ctx2.arc(shadowCanvas.width/2, shadowCanvas.height/2 - 10, 400, 0, Math.PI * 2, false);
     ctx2.closePath();
 
     ctx2.clip();
         ctx2.fillStyle = 'white';
         ctx2.beginPath();
-        ctx2.arc(shadowCanvas.width/2, shadowCanvas.height/2 - 38, 376, 0, Math.PI * 2, false);
+        ctx2.arc(shadowCanvas.width/2, shadowCanvas.height/2 - 8, 396, 0, Math.PI * 2, false);
         ctx2.closePath();
         ctx2.fill();
 
