@@ -206,9 +206,9 @@ function drawShadows() {
 
         ctx2.globalCompositeOperation = 'destination-out';
 
-        ctx2.drawImage(legsShadow, 120, 90, 800, 800);
-        ctx2.drawImage(torsoShadow, 120, 90, 800, 800);
-        ctx2.drawImage(headShadow, 120, 90, 800, 800)
+        ctx2.drawImage(legsShadow, 120, 100, 810, 810);
+        ctx2.drawImage(torsoShadow, 120, 100, 810, 810);
+        ctx2.drawImage(headShadow, 120, 100, 810, 810)
     ctx2.restore();
 }
 
