@@ -542,26 +542,26 @@ updateShadow();
 //     ctx2.restore();
 // }
 
-function drawShadows() {
-    ctx2.save();
-    ctx2.beginPath();
-    ctx2.arc(shadowCanvas.width/2, shadowCanvas.height/2, 376, 0, Math.PI * 2, false);
-    ctx2.closePath();
+// function drawShadows() {
+//     ctx2.save();
+//     ctx2.beginPath();
+//     ctx2.arc(shadowCanvas.width/2, shadowCanvas.height/2, 376, 0, Math.PI * 2, false);
+//     ctx2.closePath();
 
-    ctx2.clip();
-        ctx2.globalCompositeOperation = "xor";
+//     ctx2.clip();
+//         ctx2.globalCompositeOperation = "xor";
 
-        ctx2.drawImage(legsShadow, 120, 100, 810, 810);
-        ctx2.drawImage(torsoShadow, 120, 100, 810, 810);
-        ctx2.drawImage(headShadow, 120, 100, 810, 810);
+//         ctx2.drawImage(legsShadow, 120, 100, 810, 810);
+//         ctx2.drawImage(torsoShadow, 120, 100, 810, 810);
+//         ctx2.drawImage(headShadow, 120, 100, 810, 810);
 
-        ctx2.beginPath();
-        ctx2.arc(shadowCanvas.width/2, shadowCanvas.height/2, 380, 0, Math.PI * 2, false);
-        ctx2.closePath();
-        ctx2.fillStyle = 'white';
-        ctx2.fill();
-    ctx2.restore();
-}
+//         ctx2.beginPath();
+//         ctx2.arc(shadowCanvas.width/2, shadowCanvas.height/2, 380, 0, Math.PI * 2, false);
+//         ctx2.closePath();
+//         ctx2.fillStyle = 'white';
+//         ctx2.fill();
+//     ctx2.restore();
+// }
 
 function updateShadow() {
     bg.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(exportBg);
