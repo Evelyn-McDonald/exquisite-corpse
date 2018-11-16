@@ -191,47 +191,26 @@ headShadow.onload = function() { drawCanvasLayers(); drawShadows(); }
 
 updateShadow();
 
-// function drawShadows() {
-//     ctx2.save();
-//     ctx2.beginPath();
-//     ctx2.arc(shadowCanvas.width/2, shadowCanvas.height/2, 380, 0, Math.PI * 2, false);
-//     ctx2.closePath();
+function drawShadows() {
+    ctx2.save();
+    ctx2.beginPath();
+    ctx2.arc(shadowCanvas.width/2, shadowCanvas.height/2, 380, 0, Math.PI * 2, false);
+    ctx2.closePath();
 
-//     ctx2.clip();
-//         ctx2.fillStyle = 'white';
-//         ctx2.beginPath();
-//         ctx2.arc(shadowCanvas.width/2, shadowCanvas.height/2, 376, 0, Math.PI * 2, false);
-//         ctx2.closePath();
-//         ctx2.fill();
+    ctx2.clip();
+        ctx2.fillStyle = 'white';
+        ctx2.beginPath();
+        ctx2.arc(shadowCanvas.width/2, shadowCanvas.height/2, 376, 0, Math.PI * 2, false);
+        ctx2.closePath();
+        ctx2.fill();
 
-//         ctx2.globalCompositeOperation = 'destination-out';
+        ctx2.globalCompositeOperation = 'destination-out';
 
-//         ctx2.drawImage(legsShadow, 120, 90, 810, 810);
-//         ctx2.drawImage(torsoShadow, 120, 100, 810, 810);
-//         ctx2.drawImage(headShadow, 120, 100, 810, 810)
-//     ctx2.restore();
-// }
-
-// function drawShadows() {
-//     ctx2.save();
-//     ctx2.beginPath();
-//     ctx2.arc(shadowCanvas.width/2, shadowCanvas.height/2, 376, 0, Math.PI * 2, false);
-//     ctx2.closePath();
-
-//     ctx2.clip();
-//         ctx2.globalCompositeOperation = "xor";
-
-//         ctx2.drawImage(legsShadow, 120, 100, 810, 810);
-//         ctx2.drawImage(torsoShadow, 120, 100, 810, 810);
-//         ctx2.drawImage(headShadow, 120, 100, 810, 810);
-
-//         ctx2.beginPath();
-//         ctx2.arc(shadowCanvas.width/2, shadowCanvas.height/2, 380, 0, Math.PI * 2, false);
-//         ctx2.closePath();
-//         ctx2.fillStyle = 'white';
-//         ctx2.fill();
-//     ctx2.restore();
-// }
+        ctx2.drawImage(legsShadow, 120, 90, 810, 810);
+        ctx2.drawImage(torsoShadow, 120, 100, 810, 810);
+        ctx2.drawImage(headShadow, 120, 100, 810, 810)
+    ctx2.restore();
+}
 
 function updateShadow() {
     bg.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(exportBg);
@@ -250,50 +229,6 @@ submitBtn.click(function(e) {
     updateShadow();
 });
 
-
-// function drawCanvasLayers() {
-//     layerCount++;
-//     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-//     if (layerCount >= 8) {
-//         ctx.imageSmoothingEnabled = false;
-//         ctx.save();
-//         ctx.beginPath();
-//         ctx.arc(canvas.width/2, 225, 128, 0, Math.PI * 2, false);
-//         ctx.closePath();
-
-//         ctx.clip();
-//             ctx.fillStyle = 'white';
-//             ctx.beginPath();
-//             ctx.arc(canvas.width/2, 225, 126, 0, Math.PI * 2, false);
-//             ctx.closePath();
-//             ctx.fill();
-
-//             ctx.globalCompositeOperation = 'destination-out';
-//             ctx.drawImage(legsShadow, 97, 98, 320, 320);
-//             ctx.drawImage(torsoShadow, 97, 100, 320, 320);
-//             ctx.drawImage(headShadow, 97, 100, 320, 320);
-//         ctx.restore();
-
-//         ctx.globalCompositeOperation = 'destination-over';
-//         ctx.drawImage(bg, 100, 0);
-//         ctx.fillStyle = 'black';
-//         ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-//         ctx.globalCompositeOperation = 'source-over';
-//         ctx.drawImage(legs, 127, 58, 320, 320);
-//         ctx.drawImage(torso, 127, 60, 320, 320);
-//         ctx.drawImage(head, 127, 60, 320, 320);
-
-//         ctx.drawImage(drawLogo, 187, 34);
-
-//         ctx.font = "40px Spyscape";
-//         ctx.fillStyle = 'white';
-//         ctx.textAlign = 'center';
-//         ctx.fillText(name, canvas.width/2, canvas.height-26)
-//     }
-// }
-
 function drawCanvasLayers() {
     layerCount++;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -302,21 +237,20 @@ function drawCanvasLayers() {
         ctx.imageSmoothingEnabled = false;
         ctx.save();
         ctx.beginPath();
-        ctx.arc(canvas.width/2, 225, 126, 0, Math.PI * 2, false);
+        ctx.arc(canvas.width/2, 225, 128, 0, Math.PI * 2, false);
         ctx.closePath();
 
         ctx.clip();
-            ctx.globalCompositeOperation = 'destination-xor';
+            ctx.fillStyle = 'white';
+            ctx.beginPath();
+            ctx.arc(canvas.width/2, 225, 126, 0, Math.PI * 2, false);
+            ctx.closePath();
+            ctx.fill();
 
+            ctx.globalCompositeOperation = 'destination-out';
             ctx.drawImage(legsShadow, 97, 98, 320, 320);
             ctx.drawImage(torsoShadow, 97, 100, 320, 320);
             ctx.drawImage(headShadow, 97, 100, 320, 320);
-
-            ctx.fillStyle = 'white';
-            ctx.beginPath();
-            ctx.arc(canvas.width/2, 225, 128, 0, Math.PI * 2, false);
-            ctx.closePath();
-            ctx.fill();
         ctx.restore();
 
         ctx.globalCompositeOperation = 'destination-over';
