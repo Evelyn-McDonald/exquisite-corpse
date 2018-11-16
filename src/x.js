@@ -251,7 +251,7 @@ function drawCanvasLayers() {
             ctx.globalCompositeOperation = 'destination-out';
             ctx.drawImage(legsShadow, 40, 98, 320, 320);
             ctx.drawImage(torsoShadow, 40, 100, 320, 320);
-            ctx.drawImage(headShadow, 40, 10, 320, 320);
+            ctx.drawImage(headShadow, 40, 100, 320, 320);
         ctx.restore();
 
         ctx.globalCompositeOperation = 'destination-over';
