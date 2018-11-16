@@ -262,7 +262,7 @@ function drawCanvasLayers() {
         ctx.globalCompositeOperation = 'source-over';
         ctx.drawImage(legs, 70, 60, 320, 320);
         ctx.drawImage(torso, 70, 60, 320, 320);
-        ctx.drawImage(head, 70, 60, 320, 320);
+        ctx.drawImage(head, 70, 58, 320, 320);
 
         ctx.drawImage(drawLogo, 130, 34);
 
@@ -332,6 +332,9 @@ Webflow.push(function() {
                 success: function() {
                     $('#gatherDetails').slideUp(200);
                     $('#success').show();
+
+                    $('#downloadBtn').attr('download', name+'-SpyscapeExquisiteCorpse.png');
+                    $('#downloadBtn').attr('href', canvasToImg);
                 },
                 error: function() {
                     $('#error').show();
