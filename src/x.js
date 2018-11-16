@@ -208,7 +208,7 @@ function drawShadows() {
 
         ctx2.drawImage(legsShadow, 120, 100, 810, 810);
         ctx2.drawImage(torsoShadow, 120, 100, 810, 810);
-        ctx2.drawImage(headShadow, 120, 100, 810, 810)
+        ctx2.drawImage(headShadow, 120, 98, 810, 810)
     ctx2.restore();
 }
 
@@ -251,7 +251,7 @@ function drawCanvasLayers() {
             ctx.globalCompositeOperation = 'destination-out';
             ctx.drawImage(legsShadow, 40, 100, 320, 320);
             ctx.drawImage(torsoShadow, 40, 100, 320, 320);
-            ctx.drawImage(headShadow, 40, 100, 320, 320);
+            ctx.drawImage(headShadow, 40, 98, 320, 320);
         ctx.restore();
 
         ctx.globalCompositeOperation = 'destination-over';
