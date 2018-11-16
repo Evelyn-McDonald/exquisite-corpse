@@ -255,7 +255,7 @@ function drawCanvasLayers() {
         ctx.restore();
 
         ctx.globalCompositeOperation = 'destination-over';
-        ctx.drawImage(bg, 0, 0, 575, 460);
+        ctx.drawImage(bg, 100, 0);
         ctx.fillStyle = 'black';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
