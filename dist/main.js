@@ -528,17 +528,17 @@ function drawShadows() {
     ctx2.closePath();
 
     ctx2.clip();
+        ctx2.drawImage(legsShadow, 120, 96, 810, 810);
+        ctx2.drawImage(torsoShadow, 120, 100, 810, 810);
+        ctx2.drawImage(headShadow, 120, 100, 810, 810)
+
+        ctx2.globalCompositeOperation = 'source-out';
+
         ctx2.fillStyle = 'white';
         ctx2.beginPath();
         ctx2.arc(shadowCanvas.width/2, shadowCanvas.height/2, 376, 0, Math.PI * 2, false);
         ctx2.closePath();
         ctx2.fill();
-
-        ctx2.globalCompositeOperation = 'destination-out';
-
-        ctx2.drawImage(legsShadow, 120, 90, 810, 810);
-        ctx2.drawImage(torsoShadow, 120, 100, 810, 810);
-        ctx2.drawImage(headShadow, 120, 100, 810, 810)
     ctx2.restore();
 }
 
@@ -571,16 +571,17 @@ function drawCanvasLayers() {
         ctx.closePath();
 
         ctx.clip();
+            ctx.drawImage(legsShadow, 97, 98, 320, 320);
+            ctx.drawImage(torsoShadow, 97, 100, 320, 320);
+            ctx.drawImage(headShadow, 97, 100, 320, 320);
+
+            ctx.globalCompositeOperation = 'source-out';
+
             ctx.fillStyle = 'white';
             ctx.beginPath();
             ctx.arc(canvas.width/2, 225, 126, 0, Math.PI * 2, false);
             ctx.closePath();
             ctx.fill();
-
-            ctx.globalCompositeOperation = 'destination-out';
-            ctx.drawImage(legsShadow, 97, 98, 320, 320);
-            ctx.drawImage(torsoShadow, 97, 100, 320, 320);
-            ctx.drawImage(headShadow, 97, 100, 320, 320);
         ctx.restore();
 
         ctx.globalCompositeOperation = 'destination-over';
