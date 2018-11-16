@@ -568,20 +568,20 @@ function drawCanvasLayers() {
         ctx.imageSmoothingEnabled = false;
         ctx.save();
         ctx.beginPath();
-        ctx.arc(230, 225, 128, 0, Math.PI * 2, false);
+        ctx.arc(canvas.width/2, 225, 128, 0, Math.PI * 2, false);
         ctx.closePath();
 
         ctx.clip();
             ctx.fillStyle = 'white';
             ctx.beginPath();
-            ctx.arc(230, 225, 126, 0, Math.PI * 2, false);
+            ctx.arc(canvas.width/2, 225, 126, 0, Math.PI * 2, false);
             ctx.closePath();
             ctx.fill();
 
             ctx.globalCompositeOperation = 'destination-out';
-            ctx.drawImage(legsShadow, 40, 98, 320, 320);
-            ctx.drawImage(torsoShadow, 40, 100, 320, 320);
-            ctx.drawImage(headShadow, 40, 100, 320, 320);
+            ctx.drawImage(legsShadow, 97, 98, 320, 320);
+            ctx.drawImage(torsoShadow, 97, 100, 320, 320);
+            ctx.drawImage(headShadow, 97, 100, 320, 320);
         ctx.restore();
 
         ctx.globalCompositeOperation = 'destination-over';
@@ -590,11 +590,11 @@ function drawCanvasLayers() {
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         ctx.globalCompositeOperation = 'source-over';
-        ctx.drawImage(legs, 70, 58, 320, 320);
-        ctx.drawImage(torso, 70, 60, 320, 320);
-        ctx.drawImage(head, 70, 60, 320, 320);
+        ctx.drawImage(legs, 127, 58, 320, 320);
+        ctx.drawImage(torso, 127, 60, 320, 320);
+        ctx.drawImage(head, 127, 60, 320, 320);
 
-        ctx.drawImage(drawLogo, 130, 34);
+        ctx.drawImage(drawLogo, 187, 34);
 
         ctx.font = "40px Spyscape";
         ctx.fillStyle = 'white';
