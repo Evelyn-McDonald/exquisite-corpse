@@ -191,37 +191,33 @@ headShadow.onload = function() { drawCanvasLayers(); drawShadows(); }
 
 updateShadow();
 
-// var tempCanvas = document.createElement('canvas');
-// var tempCtx = tempCanvas.getContext('2d');
-// tempCanvas.width = shadowCanvas.width;
-// tempCanvas.height = shadowCanvas.height;
+var tempCanvas = document.createElement('canvas');
+var tempCtx = tempCanvas.getContext('2d');
+tempCanvas.width = shadowCanvas.width;
+tempCanvas.height = shadowCanvas.height;
 
-// function drawShadows() {
-//     tempCtx.drawImage(legsShadow, 120, 96, 810, 810);
-//     tempCtx.drawImage(torsoShadow, 120, 96, 810, 810);
-//     tempCtx.drawImage(headShadow, 120, 96, 810, 810);
+function drawShadows() {
+    tempCtx.drawImage(legsShadow, 120, 96, 810, 810);
+    tempCtx.drawImage(torsoShadow, 120, 96, 810, 810);
+    tempCtx.drawImage(headShadow, 120, 96, 810, 810);
 
-//     ctx2.save();
-//     ctx2.beginPath();
-//     ctx2.arc(shadowCanvas.width/2, shadowCanvas.height/2, 380, 0, Math.PI * 2, false);
-//     ctx2.closePath();
+    ctx2.save();
+    ctx2.beginPath();
+    ctx2.arc(shadowCanvas.width/2, shadowCanvas.height/2, 380, 0, Math.PI * 2, false);
+    ctx2.closePath();
 
-//     ctx2.clip();
-//         // ctx2.drawImage(legsShadow, 120, 96, 810, 810);
-//         // ctx2.drawImage(torsoShadow, 120, 100, 810, 810);
-//         // ctx2.drawImage(headShadow, 120, 100, 810, 810)
-//         // var tempImg = tempCanvas.toDataURL();
-//         ctx2.drawImage(tempCanvas, 0, 0);
+    ctx2.clip();
+        ctx2.globalCompositeOperation = 'source-out';
 
-//         ctx2.globalCompositeOperation = 'source-out';
+        ctx2.drawImage(tempCanvas, 0, 0);
 
-//         ctx2.fillStyle = 'white';
-//         ctx2.beginPath();
-//         ctx2.arc(shadowCanvas.width/2, shadowCanvas.height/2, 376, 0, Math.PI * 2, false);
-//         ctx2.closePath();
-//         ctx2.fill();
-//     ctx2.restore();
-// }
+        ctx2.fillStyle = 'white';
+        ctx2.beginPath();
+        ctx2.arc(shadowCanvas.width/2, shadowCanvas.height/2, 376, 0, Math.PI * 2, false);
+        ctx2.closePath();
+        ctx2.fill();
+    ctx2.restore();
+}
 
 function updateShadow() {
     bg.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(exportBg);
