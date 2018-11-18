@@ -240,55 +240,62 @@ submitBtn.click(function(e) {
     updateShadow();
 });
 
-// function drawCanvasLayers() {
-//     layerCount++;
-//     ctx.clearRect(0, 0, canvas.width, canvas.height);
+var tempShadow = document.createElement('canvas');
+var tempShadowCtx = tempShadow.getContext('2d');
+tempShadow.width = canvas.width;
+tempShadow.height = canvas.height;
 
-//     if (layerCount >= 8) {
-//         tempCtx.drawImage(legsShadow, 120, 96, 810, 810);
-//         tempCtx.drawImage(torsoShadow, 120, 96, 810, 810);
-//         tempCtx.drawImage(headShadow, 120, 96, 810, 810);
+var tempSpotlight = document.createElement('canvas');
+var tempSpotlightCtx = tempSpotlight.getContext('2d');
+tempSpotlight.width = canvas.width;
+tempSpotlight.height = canvas.height;
 
-//         ctx.imageSmoothingEnabled = false;
-//         ctx.save();
-//         ctx.beginPath();
-//         ctx.arc(canvas.width/2, 225, 128, 0, Math.PI * 2, false);
-//         ctx.closePath();
+function drawCanvasLayers() {
+    layerCount++;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-//         ctx.clip();
-//             ctx.drawImage(legsShadow, 97, 98, 320, 320);
-//             ctx.drawImage(torsoShadow, 97, 100, 320, 320);
-//             ctx.drawImage(headShadow, 97, 100, 320, 320);
+    if (layerCount >= 8) {
+        tempShadowCtx.drawImage(legsShadow, 97, 98, 320, 320);
+        tempShadowCtx.drawImage(torsoShadow, 97, 100, 320, 320);
+        tempShadowCtx.drawImage(headShadow, 97, 100, 320, 320);
 
-//             ctx.drawImage(tempCanvas, 0, 0);
+        ctx.fillStyle = 'black';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(bg, 100, 0);
 
-//             ctx.globalCompositeOperation = 'source-out';
+        ctx.imageSmoothingEnabled = false;
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(canvas.width/2, 225, 128, 0, Math.PI * 2, false);
+        ctx.closePath();
 
-//             ctx.fillStyle = 'white';
-//             ctx.beginPath();
-//             ctx.arc(canvas.width/2, 225, 126, 0, Math.PI * 2, false);
-//             ctx.closePath();
-//             ctx.fill();
-//         ctx.restore();
+        ctx.clip();
+            tempSpotlightCtx.drawImage(tempShadow, 0, 0);
 
-//         ctx.globalCompositeOperation = 'destination-over';
-//         ctx.drawImage(bg, 100, 0);
-//         ctx.fillStyle = 'black';
-//         ctx.fillRect(0, 0, canvas.width, canvas.height);
+            tempSpotlightCtx.globalCompositeOperation = 'source-out';
 
-//         ctx.globalCompositeOperation = 'source-over';
-//         ctx.drawImage(legs, 127, 58, 320, 320);
-//         ctx.drawImage(torso, 127, 60, 320, 320);
-//         ctx.drawImage(head, 127, 60, 320, 320);
+            tempSpotlightCtx.fillStyle = 'white';
+            tempSpotlightCtx.beginPath();
+            tempSpotlightCtx.arc(canvas.width/2, 225, 126, 0, Math.PI * 2, false);
+            tempSpotlightCtx.closePath();
+            tempSpotlightCtx.fill();
 
-//         ctx.drawImage(drawLogo, 187, 34);
+            ctx.drawImage(tempSpotlight, 0, 0);
+        ctx.restore();
 
-//         ctx.font = "40px Spyscape";
-//         ctx.fillStyle = 'white';
-//         ctx.textAlign = 'center';
-//         ctx.fillText(name, canvas.width/2, canvas.height-26)
-//     }
-// }
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.drawImage(legs, 127, 58, 320, 320);
+        ctx.drawImage(torso, 127, 60, 320, 320);
+        ctx.drawImage(head, 127, 60, 320, 320);
+
+        ctx.drawImage(drawLogo, 187, 34);
+
+        ctx.font = "40px Spyscape";
+        ctx.fillStyle = 'white';
+        ctx.textAlign = 'center';
+        ctx.fillText(name, canvas.width/2, canvas.height-26)
+    }
+}
 
 // ------------------------------
 // form handling
