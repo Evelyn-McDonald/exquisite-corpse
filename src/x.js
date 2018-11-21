@@ -284,9 +284,9 @@ function drawCanvasLayers() {
         ctx.restore();
 
         ctx.globalCompositeOperation = 'source-over';
-        ctx.drawImage(legs, 127, 58, 320, 320);
-        ctx.drawImage(torso, 127, 60, 320, 320);
-        ctx.drawImage(head, 127, 60, 320, 320);
+        if (legs.src) ctx.drawImage(legs, 127, 58, 320, 320);
+        if (torso.src) ctx.drawImage(torso, 127, 60, 320, 320);
+        if (head.src) ctx.drawImage(head, 127, 60, 320, 320);
 
         ctx.drawImage(drawLogo, 187, 34);
 
