@@ -191,15 +191,16 @@ headShadow.onload = function() { drawCanvasLayers(); drawShadows(); }
 
 updateShadow();
 
-var tempCanvas = document.createElement('canvas');
-var tempCtx = tempCanvas.getContext('2d');
-tempCanvas.width = shadowCanvas.width;
-tempCanvas.height = shadowCanvas.height;
 
 function drawShadows() {
+    var tempCanvas = document.createElement('canvas');
+    var tempCtx = tempCanvas.getContext('2d');
+    tempCanvas.width = shadowCanvas.width;
+    tempCanvas.height = shadowCanvas.height;
+    
     tempCtx.drawImage(legsShadow, 120, 96, 810, 810);
-    tempCtx.drawImage(torsoShadow, 120, 96, 810, 810);
-    tempCtx.drawImage(headShadow, 120, 96, 810, 810);
+    tempCtx.drawImage(torsoShadow, 120, 100, 810, 810);
+    tempCtx.drawImage(headShadow, 120, 100, 810, 810);
 
     ctx2.save();
     ctx2.beginPath();
