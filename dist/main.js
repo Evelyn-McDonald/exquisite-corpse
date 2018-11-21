@@ -600,7 +600,7 @@ function drawCanvasLayers() {
         ctx.closePath();
 
         ctx.clip();
-            tempSpotlightCtx.drawImage(tempShadow, 0, 0);
+            tempSpotlightCtx.drawImage(tempShadow, 0, 0, canvas.width, canvas.height);
 
             tempSpotlightCtx.globalCompositeOperation = 'source-out';
 
