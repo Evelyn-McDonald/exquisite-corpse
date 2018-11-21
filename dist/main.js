@@ -521,13 +521,14 @@ headShadow.onload = function() { drawCanvasLayers(); drawShadows(); }
 
 updateShadow();
 
-
 function drawShadows() {
+    ctx2.clearRect(0, 0, shadowCanvas.width, shadowCanvas.height);
+
     var tempCanvas = document.createElement('canvas');
     var tempCtx = tempCanvas.getContext('2d');
     tempCanvas.width = shadowCanvas.width;
     tempCanvas.height = shadowCanvas.height;
-    
+
     tempCtx.drawImage(legsShadow, 120, 96, 810, 810);
     tempCtx.drawImage(torsoShadow, 120, 100, 810, 810);
     tempCtx.drawImage(headShadow, 120, 100, 810, 810);
@@ -567,24 +568,26 @@ submitBtn.click(function(e) {
     updateShadow();
 });
 
-var tempShadow = document.createElement('canvas');
-var tempShadowCtx = tempShadow.getContext('2d');
-tempShadow.width = canvas.width;
-tempShadow.height = canvas.height;
-
-var tempSpotlight = document.createElement('canvas');
-var tempSpotlightCtx = tempSpotlight.getContext('2d');
-tempSpotlight.width = canvas.width;
-tempSpotlight.height = canvas.height;
-
 function drawCanvasLayers() {
     layerCount++;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     if (layerCount >= 8) {
+        // Shadows
+        var tempShadow = document.createElement('canvas');
+        var tempShadowCtx = tempShadow.getContext('2d');
+        tempShadow.width = canvas.width;
+        tempShadow.height = canvas.height;
+
         tempShadowCtx.drawImage(legsShadow, 97, 98, 320, 320);
         tempShadowCtx.drawImage(torsoShadow, 97, 100, 320, 320);
         tempShadowCtx.drawImage(headShadow, 97, 100, 320, 320);
+
+        // Spotlight
+        var tempSpotlight = document.createElement('canvas');
+        var tempSpotlightCtx = tempSpotlight.getContext('2d');
+        tempSpotlight.width = canvas.width;
+        tempSpotlight.height = canvas.height;
 
         ctx.fillStyle = 'black';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
