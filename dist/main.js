@@ -618,7 +618,7 @@ function drawCanvasLayers() {
         if (torso.src) ctx.drawImage(torso, 127, 60, 320, 320);
         if (head.src) ctx.drawImage(head, 127, 60, 320, 320);
 
-        ctx.drawImage(drawLogo, 187, 34);
+        ctx.drawImage(drawLogo, 187, 28);
 
         ctx.font = "40px Spyscape";
         ctx.fillStyle = 'white';
