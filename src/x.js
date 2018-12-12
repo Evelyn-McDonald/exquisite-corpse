@@ -343,7 +343,8 @@ Webflow.push(function() {
             console.log(data);
 
             $.ajax({
-                url: 'http://hooks.zapier.com/hooks/catch/2805412/l0grn0/',
+                // url: 'http://hooks.zapier.com/hooks/catch/2805412/l0grn0/',
+                url: 'https://hooks.zapier.com/hooks/catch/4146586/cl4h3g/',
                 data: data,
                 method: 'POST',
                 dataType: 'json',
