@@ -1,3 +1,7 @@
+/* TEMP */
+window.location.href = "https://spyscape.com";
+
+
 // -----------------------------------------
 // Character name validation
 var nameInput = $('#characterName');
@@ -348,12 +352,6 @@ Webflow.push(function() {
                 data: data,
                 method: 'POST',
                 dataType: 'json',
-                // xhrFields: {
-                //    withCredentials: true
-                // },
-                // beforeSend: function(xhr) {
-                //    xhr.withCredentials = true;
-                // },
                 success: function() {
                     $('#gatherDetails').slideUp(200);
                     $('#success').show();
