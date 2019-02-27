@@ -1,5 +1,5 @@
 /* TEMP */
-window.location.href = "https://spyscape.com";
+// window.location.href = "https://spyscape.com";
 
 
 // -----------------------------------------
